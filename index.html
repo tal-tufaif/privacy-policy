@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - CCCompanion</title>
+    <style>
+        :root {
+            --primary: #106ebe;
+            --primary-dark: #005a9e;
+            --text-main: #24292f;
+            --text-muted: #57606a;
+            --bg-page: #f6f8fa;
+            --bg-card: #ffffff;
+            --border-color: #d0d7de;
+            --accent-green: #0e7090;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 48px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .header {
+            border-bottom: 2px solid #eaeef2;
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+        .badge {
+            display: inline-block;
+            background: #e1f0fa;
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 30px;
+            color: #1f2328;
+            margin-bottom: 8px;
+        }
+        .meta {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        h2 {
+            font-size: 20px;
+            color: #1f2328;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eaeef2;
+        }
+        p {
+            margin-bottom: 16px;
+            color: #32383f;
+        }
+        ul {
+            margin-bottom: 18px;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #32383f;
+        }
+        .highlight-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin: 24px 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+            color: #0c4a6e;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #eaeef2;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="badge">Official Disclosure</span>
+            <h1>Privacy Policy for CCCompanion</h1>
+            <div class="meta">
+                <strong>Extension:</strong> CCCompanion | <strong>Last Updated:</strong> October 13, 2026 | <strong>Publisher:</strong> Tayseer Al-Tufaif
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <p>Summary: CCCompanion operates 100% locally in your browser. It does not collect, record, transmit, or share any personal, patient, or healthcare information with external servers or third parties.</p>
+        </div>
+
+        <h2>1. Overview & Single Purpose</h2>
+        <p>CCCompanion is a specialized workflow companion designed to optimize clinical documentation and order-entry workflows within the Saudi Ministry of Health (MOH) <strong>Raqeem Health Information System</strong> (<code>moh.raqeem.sa</code>, <code>raqeem.anat.sa</code>) and the <strong>Wasfaty</strong> electronic prescription portal (<code>wasfaty.sa</code>).</p>
+        <p>Its single purpose is to streamline repetitive outpatient tasks by assisting clinicians with visit note templating, ICD-10 diagnosis code linking, and prescription renewal shortcuts directly within their active medical record sessions.</p>
+
+        <h2>2. Data Collection and Transmission</h2>
+        <ul>
+            <li><strong>Zero Remote Collection:</strong> CCCompanion does not operate an external database or backend server. No patient identification, medical records, or user credentials ever leave your browser.</li>
+            <li><strong>No Third-Party Sharing:</strong> We do not sell, rent, trade, or transfer any user data, clinical records, or telemetry to third parties or advertising partners.</li>
+            <li><strong>No Tracking or Analytics:</strong> The extension does not embed tracking pixels, telemetry beacons, Google Analytics, or third-party marketing SDKs.</li>
+        </ul>
+
+        <h2>3. Permissions and How They Are Used</h2>
+        <p>CCCompanion requests only the minimum permissions required for its functionality:</p>
+        <ul>
+            <li><strong>Host Permissions (<code>moh.raqeem.sa</code>, <code>raqeem.anat.sa</code>, <code>wasfaty.sa</code>):</strong> Required to interact with form fields and buttons on authorized healthcare portals to automate note insertion and workflow assistance. No data is extracted or transmitted away from these pages.</li>
+            <li><strong>Storage (<code>chrome.storage.local</code>):</strong> Used solely to preserve user-customized clinical templates, macro presets, and shortcut preferences locally on your computer. This configuration data stays strictly on your local device.</li>
+            <li><strong>Context Menus (<code>contextMenus</code>):</strong> Enables right-click quick access shortcuts to predefined clinical macros while working inside Raqeem.</li>
+            <li><strong>Tabs (<code>tabs</code>):</strong> Used exclusively to coordinate navigation between Raqeem and Wasfaty tabs and to open the local extension configuration (options) page.</li>
+        </ul>
+
+        <h2>4. Remote Code and Security</h2>
+        <ul>
+            <li><strong>No Remote Code:</strong> In accordance with Chrome Web Store and Microsoft Edge policies, CCCompanion does not load, fetch, or execute any remote scripts, eval() statements, or external WebAssembly. All executable code is packaged locally within the extension archive.</li>
+            <li><strong>In-Memory Processing:</strong> Any dynamic information processed during a clinical encounter is kept in volatile browser memory and is discarded immediately when the page is navigated or closed.</li>
+        </ul>
+
+        <h2>5. Compliance with Store Policies</h2>
+        <p>This privacy policy strictly adheres to the <strong>Google Chrome Web Store Developer Program Policies</strong> (including the Limited Use requirements and User Data FAQ) and the <strong>Microsoft Edge Add-ons Developer Policies</strong>.</p>
+
+        <div class="footer">
+            <h2>6. Contact & Inquiries</h2>
+            <p>If you have any questions, feedback, or concerns regarding CCCompanion or this privacy policy, please contact:</p>
+            <p>
+                <strong>Developer / Publisher:</strong> Tayseer Al-Tufaif<br>
+                <strong>Email:</strong> <a href="mailto:t_tufaif@hotmail.com">t_tufaif@hotmail.com</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
