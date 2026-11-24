@@ -1,7 +1,7 @@
 # Privacy Policy for CCCompanion
 
 **Extension Name:** CCCompanion  
-**Target Version:** 5.1.72  
+**Version:** 5.1.72  
 **Publisher:** Tayseer Al-Tufaif  
 **Contact:** [t_tufaif@hotmail.com](mailto:t_tufaif@hotmail.com)  
 **Last Updated:** November 24, 2026  
@@ -9,86 +9,81 @@
 
 ---
 
-### Summary
-CCCompanion functions 100% locally in your browser. It does not operate remote servers, does not transmit user data across networks, and shares zero information with third parties. All user macros and templates stay securely stored on your local machine.
+### Overview
+CCCompanion is a clinical workflow automation extension for healthcare professionals using authorized Saudi Ministry of Health (MOH) and Eastern Health Cluster (EHC) clinical systems. This Privacy Policy discloses exactly what user data is collected, accessed, handled, stored, and shared—including local browser storage and user-initiated submissions to authorized institutional clinical portals.
 
 ---
 
-### 1. Overview & Single Purpose
-CCCompanion is a specialized clinical workflow automation extension built for healthcare professionals and care coordinators operating within the Saudi Ministry of Health (MOH) **Raqeem Health Information System** (`moh.raqeem.sa`, `raqeem.anat.sa`) and the **Wasfaty** electronic prescription platform (`wasfaty.sa`).
-
-**Single Purpose:** To streamline repetitive outpatient clinical documentation tasks by assisting clinicians with visit note templating, ICD-10 diagnosis code shortcuts, and electronic prescription navigation directly within their active medical record sessions.
+### 1. Single Purpose & Authorized Portals
+CCCompanion's single purpose is to streamline repetitive outpatient clinical documentation, e-prescription reorders, and care-coordination workflows directly inside authorized institutional portals:
+* **Raqeem Health Information System (HIS):** `https://moh.raqeem.sa/*`, `https://raqeem.anat.sa/*`
+* **Wasfaty E-Prescription Portal:** `https://pp.wasfaty.sa/*`, `https://wasfatypp.moh.gov.sa/*`
+* **Eastern Health Cluster (EHC) Clinical Forms / REDCap:** `https://tforms.ehc.med.sa/*`, `https://*.ehc.med.sa/*`
+* **Authorized Institutional Analytics Dashboards:** `http://taamanalytics.ehc.med.sa/*`, `https://taamanalytics.ehc.med.sa/*`, `https://metabase.ehcdhn.online/*`, `https://app.powerbi.com/*`
 
 ---
 
 ### 2. User Data Collection
-In accordance with the Chrome Web Store User Data Policy, this section comprehensively discloses what data is collected and what data is not collected:
 
-#### A. What Data Is Collected Locally
-* **User Configuration & Macro Presets:** Custom text templates, ICD-10 note shortcuts, and UI display preferences that you explicitly create and save in the extension options page. This information is stored exclusively on your local device.
+#### A. Data Categories Accessed, Processed, or Collected
+* **Personally Identifiable Information (PII):** 10-digit Saudi National IDs / Iqama numbers detected when a clinician highlights/right-clicks an ID or triggers a quick-search/follow-up action from a patient chart or authorized BI dashboard, strictly to locate the patient record in Raqeem or attach a follow-up note in EHC REDCap.
+* **Health Information:** Active consultation context displayed inside Raqeem HIS (vital signs, lab results, ICD-10 diagnosis codes, patient weight for pediatric dosing, and Wasfaty e-prescription reference IDs), clinician-selected medication reorder lists transferred to Wasfaty, and clinician-entered TBC follow-up note data (`note`, `text`, `tot`, `date`).
+* **Website Content:** Active DOM text, table structures, form inputs, and same-origin portal API responses (Raqeem XHR responses for Wasfaty IDs) strictly on the authorized portals listed in Section 1.
+* **User Configuration & Custom Macro Presets:** Custom ICD-10 note templates and feature toggles configured by the user in `options.html`.
 
-#### B. What Data Is NOT Collected
-* **No Personally Identifiable Information (PII):** CCCompanion does not collect or transmit names, national IDs, email addresses, phone numbers, ages, or personal identities.
-* **No Protected Health Information (PHI) / Clinical Records:** CCCompanion does not collect, record, log, or transmit patient medical histories, clinical diagnoses, vital signs, prescriptions, or encounter records.
-* **No Authentication Credentials:** CCCompanion does not intercept, read, or store passwords, OTP tokens, MFA codes, or portal credentials.
-* **No Browsing History or Web Activity:** CCCompanion does not track or collect web browsing history, visited URLs outside the designated institutional portals, clicks, mouse tracking, or keystroke logs.
-* **No Financial or Payment Information:** CCCompanion does not handle financial transactions, credit cards, or billing information.
-* **No Location Data:** CCCompanion does not access or store GPS, IP location, or geographical tracking data.
+#### B. Data Categories NOT Collected
+* **No Authentication Credentials:** Does not read, store, or collect passwords, PINs, OTPs, or login credentials.
+* **No Financial or Payment Information:** Does not collect credit card or payment data.
+* **No Location Data:** Does not collect GPS or IP geolocation data.
+* **No General Web Browsing History or Personal Communications:** Does not track browsing outside authorized portals or access emails/chats.
+* **No User Activity Tracking / Telemetry:** Does not log keystrokes, mouse movements, or analytics.
 
 ---
 
 ### 3. Data Handling & Usage
-This section outlines how user information is handled, processed, and utilized:
-* **Sole Purpose Processing:** All user-configured templates are utilized solely to fulfill the extension's narrow single purpose—enabling quick insertion of clinical notes into active form fields when initiated by the clinician.
-* **In-Memory Processing:** Any dynamic text manipulated during an active clinical encounter is processed purely in volatile browser memory and is discarded immediately once the browser tab or session is closed.
-* **No External Server Processing:** CCCompanion does not maintain an external API, database, or backend server. No calculations or data parsing occur on external infrastructure.
-* **No Commercial Profiling or Advertising:** Stored data and templates are never used for marketing, advertising, ad targeting, credit evaluation, or personalized profiling.
+* **In-Page Clinical Formatting & Assistance:** Clinical vitals, lab tables, summary column tidying, ICD-10 macro insertion, and weight-based dosage checks execute locally in browser memory.
+* **Quick Patient Lookup:** Passes a selected National ID locally to fill the Raqeem Registration search input in the clinician's authenticated tab.
+* **Cross-Tab Wasfaty Order Handoff:** Temporarily stages selected medication queues in `chrome.storage.local` (`ccc_wasfaty_order_queue`), populates the Wasfaty portal form (`pp.wasfaty.sa` / `wasfatypp.moh.gov.sa`), and clears the queue upon completion.
+* **User-Initiated Institutional TBC Note Submission:** Only when the clinician explicitly clicks *Save & Submit* in the TBC Note modal, the extension transmits the National ID, follow-up note code, optional remarks, TOT indicator, and date via HTTPS `POST` directly to the authorized institutional EHC REDCap API (`https://tforms.ehc.med.sa/api/`).
+* **Prohibited Uses:** Data is never used for advertising, marketing, creditworthiness evaluation, data brokering, or AI model training.
 
 ---
 
 ### 4. Data Storage, Retention, and Deletion
-This section explains where data resides, how long it is retained, and how users maintain complete control over deletion:
-* **Storage Location:** All saved configuration settings, macro templates, and shortcut preferences reside strictly on the user's local device via the standard Chromium local storage API (`chrome.storage.local`).
-* **Data Retention Period:** Data is retained locally on your computer for as long as you keep the extension installed and wish to maintain your custom templates.
-* **User Deletion & Control:**
-  * Users can modify, clear, or delete individual templates and presets at any time via the extension's built-in **Options** page.
-  * Uninstalling CCCompanion immediately and permanently deletes all locally stored extension data and preferences from your browser.
-  * Clearing browser cache/extension storage through browser settings will also wipe all saved configuration data.
+* **Local Device Storage (`chrome.storage.local` & `localStorage`):** Presets and feature toggles remain stored locally until edited/deleted via `options.html` or until the extension is uninstalled. Temporary Wasfaty queues (`ccc_wasfaty_order_queue`) are automatically deleted after transfer completion.
+* **Institutional Server Storage (EHC REDCap):** TBC follow-up notes explicitly submitted by clinicians reside in the Eastern Health Cluster REDCap database (`tforms.ehc.med.sa`) under EHC/Saudi MOH institutional governance. The developer does not operate an independent external backend database.
 
 ---
 
-### 5. Data Sharing & Third Parties
-> **All parties the user data will be shared with: NONE.**
-
-CCCompanion does not transfer, sell, rent, license, or disclose user data to any external parties under any circumstances. Specifically:
-* **No Third-Party Sharing:** Zero user data, configuration data, or clinical text is shared with third-party companies, vendors, or services.
-* **No Ad Networks or Brokers:** We do not sell or monetize user information to data brokers, ad networks, or commercial entities.
-* **No Analytics or Tracking SDKs:** CCCompanion does not embed Google Analytics, Mixpanel, telemetry beacons, tracking pixels, or third-party marketing SDKs.
+### 5. Data Sharing & All Third Parties
+**Comprehensive List of All Parties User Data May Be Shared With or Transferred To:**
+1. **Eastern Health Cluster (EHC) / Saudi Ministry of Health Institutional REDCap System (`https://tforms.ehc.med.sa/`):** Receives user-submitted TBC clinical follow-up note records (`national_id`, note code, remarks, TOT flag, date) exclusively when explicitly submitted by a clinician.
+2. **Authorized Clinical Portals Operated by the User's Institution (`moh.raqeem.sa`, `raqeem.anat.sa`, `pp.wasfaty.sa`, `wasfatypp.moh.gov.sa`):** User-initiated actions populate form inputs directly within the clinician's authenticated tabs.
+3. **Commercial Third Parties, Advertisers, Data Brokers, Analytics Vendors, or Unrelated External Servers:** **NONE.**
 
 ---
 
-### 6. Permissions and Scoped Use
-CCCompanion requests only the minimum necessary permissions required to operate:
-* **Host Permissions (`moh.raqeem.sa`, `raqeem.anat.sa`, `wasfaty.sa`):** Restricted strictly to injecting clinical automation content scripts into designated institutional healthcare portals to assist clinicians with form filling. No data is extracted or transmitted outside these origins.
-* **Storage (`chrome.storage.local`):** Required to preserve user-customized clinical note presets and options locally on the device.
-* **Context Menus (`contextMenus`):** Enables right-click context menu shortcuts for quick template insertion inside the Raqeem interface.
-* **Tabs (`tabs`):** Used exclusively to detect existing hospital portal tabs and open the local extension configuration (`options.html`) page.
+### 6. Permissions & Host Access Justification
+* **`storage`:** Saves custom clinical presets locally and temporarily stages Wasfaty medication reorder queues between Raqeem and Wasfaty tabs.
+* **`contextMenus`:** Adds right-click shortcuts ("Search in Raqeem" and "Fill TBC Note") for selected National IDs.
+* **`tabs`:** Detects or opens authorized Raqeem and Wasfaty tabs for patient lookups and e-prescription handoff.
+* **Host Permissions & Content Scripts:** Required to inject workflow UI helpers on Raqeem and Wasfaty, capture selected National IDs on authorized BI dashboards (`taamanalytics.ehc.med.sa`, `metabase.ehcdhn.online`, `app.powerbi.com`), handle EHC survey popups (`*.ehc.med.sa`), and submit user-initiated TBC notes to `tforms.ehc.med.sa/api/`.
 
 ---
 
-### 7. Remote Code and Security Practices
-* **Zero Remote Code:** In strict compliance with Chrome Web Store and Microsoft Edge policies, CCCompanion does not load, fetch, or execute any remote code, eval() statements, dynamic external scripts, or remote WebAssembly. All executable code is packaged locally within the published extension archive.
-* **Volatile Memory Only:** Clinical form interactions happen entirely within the active DOM session. No copies of clinical consultations or patient files are written to disk.
+### 7. Security & User Consent
+* **Prominent Disclosure & Affirmative Consent:** Data handling is prominently disclosed in the Chrome Web Store listing and this Privacy Policy. External transmissions and lookups execute only upon explicit clinician interaction.
+* **Transport Encryption:** Transmissions to `https://tforms.ehc.med.sa/api/` are encrypted via HTTPS/TLS with `credentials: 'omit'`.
+* **No Remote Code:** Zero remote code execution or external scripts.
 
 ---
 
-### 8. Compliance with Store Developer Policies
-This privacy policy complies with the **Google Chrome Web Store Developer Program Policies** (including the User Data FAQ, Prominent Disclosure, and Limited Use requirements) and the **Microsoft Edge Add-ons Developer Policies**.
+### 8. Chrome Web Store Limited Use Compliance
+The handling and use of all user data received or processed by CCCompanion strictly adheres to the **Chrome Web Store User Data Policy**, including the **Limited Use** requirements, as well as the Microsoft Edge Add-ons Developer Policies.
 
 ---
 
-### 9. Contact & Support
-If you have any questions, inquiries, or feedback regarding CCCompanion or this Privacy Policy, please contact:
+### 9. Contact & Inquiries
 * **Developer / Publisher:** Tayseer Al-Tufaif
 * **Email:** [t_tufaif@hotmail.com](mailto:t_tufaif@hotmail.com)
 * **Live Policy URL:** [https://tal-tufaif.github.io/privacy-policy/](https://tal-tufaif.github.io/privacy-policy/)
